@@ -1,0 +1,67 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- single product -->
+	<div class="single-product mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="single-product-img">
+						<img id="oke" src="{% static 'home/images/w1.png' %}" alt="">
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="single-product-content">
+						<h3>Mi Band 6</h3>
+						<p class="single-product-pricing"> $500</p>
+						<p><span>Stock:</span>
+							100
+						</p>
+						<p>Mi Band 6 smart bracelet from the famous technology company Xiaomi , has an edge-to-edge screen design with scratch-resistant tempered glass, a rubber strap that hugs the wrist, waterproof for you to have a good viewing angle. more comfortable feeling all day long.</p>
+						<div class="single-product-form">
+							<form action="index.html">
+								<input type="number" placeholder="0">
+								<input type="text" placeholder="UserName" style="border: 1px solid #ddd;
+								border-radius: 5px;padding: 10px; width: 100px;margin-bottom: 15px;">
+							</form>
+							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+						</div>
+						
+		
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end single product -->
+
+	<!-- more picture -->
+	<div class="more-products mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img id="okes" src="{% static 'home/images/w2.png' %}" alt=""></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img id="okes" src="{% static 'home/images/w3.png' %}" alt=""></a>
+						</div>	
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img id="okes" src="{% static 'home/images/w4.png' %}" alt=""></a>
+						</div>				
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end more picture -->
+{% endblock %}
