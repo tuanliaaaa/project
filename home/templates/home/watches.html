@@ -10,20 +10,22 @@
         </h2>
       </div>
       <div class="row">
-        <div class="col-md-6 ">
+        {% for watch in list_watch%}
+        <div class="col-md-6 col-xl-3">
+         
           <div class="box">
-            <a href="">
+            <a href="{% url 'singerProduct' watch.id %}">
               <div class="img-box">
-                <img src="{% static 'home/images/w1.png' %}" alt="">
+                <img src="{{watch.imgs.0}}" alt="">
               </div>
               <div class="detail-box">
                 <h6>
-                  Smartwatch
+                  {{watch.ProductName}}
                 </h6>
                 <h6>
                   Price:
                   <span>
-                    $300
+                    ${{watch.price}}
                   </span>
                 </h6>
               </div>
@@ -34,164 +36,15 @@
               </div>
             </a>
           </div>
+         
         </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="{% static 'home/images/w2.png' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Smartwatch
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $125
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="{% static 'home/images/w3.png' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Smartwatch
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $110
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="{% static 'home/images/w4.png' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Smartwatch
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $145
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="{% static 'home/images/w5.png' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Smartwatch
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $195
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6  col-xl-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="{% static 'home/images/w6.png' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Smartwatch
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $170
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img src="{% static 'home/images/w1.png' %}" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  Smartwatch
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $230
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  New
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          View All
-        </a>
-      </div>
+        {% endfor %}
     </div>
+    <div class="btn-box">
+          <a href="../watches/showAll">
+           View More
+          </a>
+      </div>
   </section>
 {% endblock %}
 {% block contents %}

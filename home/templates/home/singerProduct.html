@@ -2,29 +2,38 @@
 {% load static %}
 {% block content %}
     <!-- single product -->
+	{% if ok  %}
+	{% else %}
+		<div id='bug' style='border: 1px solid #ccc;
+		margin-top: 20px;'>
+			<h1 style='color:red;font-size:23px;text-align:center'> Số lượng mua vượt quá số lượng trong kho vui lòng nhập lại.</h1>
+		</div>
+	{% endif %}
 	<div class="single-product mt-150 mb-150">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
 					<div class="single-product-img">
-						<img id="oke" src="{% static 'home/images/w1.png' %}" alt="">
+						<img id="oke" src="{{ims.0}}" alt="">
 					</div>
 				</div>
 				<div class="col-md-7">
 					<div class="single-product-content">
-						<h3>Mi Band 6</h3>
-						<p class="single-product-pricing"> $500</p>
+						<h3>{{singerProduct.ProductName}}</h3>
+						<p class="single-product-pricing"> ${{singerProduct.price}}</p>
 						<p><span>Stock:</span>
-							100
+							{{singerProduct.stock}}
 						</p>
-						<p>Mi Band 6 smart bracelet from the famous technology company Xiaomi , has an edge-to-edge screen design with scratch-resistant tempered glass, a rubber strap that hugs the wrist, waterproof for you to have a good viewing angle. more comfortable feeling all day long.</p>
+						<p>{{singerProduct.describe}}</p>
 						<div class="single-product-form">
-							<form action="index.html">
-								<input type="number" placeholder="0" style="width: 164px;text-align: end;">
-								<input type="text" placeholder="UserName" style="border: 1px solid #ddd;
-								border-radius: 5px;padding: 10px; width: 300px;margin-bottom: 15px;margin-left: 78px;">
+							<form action="" method=POST>
+								{% csrf_token %}
+								<input type="number" placeholder="0" name="quantily" id="quantily" onchange ="checkQuantily()" style="width: 164px;text-align: end;" required>
+								<input type="text" placeholder="UserName" name="User" style="border: 1px solid #ddd;
+								border-radius: 5px;padding: 10px; width: 300px;margin-bottom: 15px;margin-left: 78px;" required>
+								<input class="cart-btn" type="submit" value=" Buy Now">
 							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+							
 						</div>
 						
 		
@@ -42,21 +51,21 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img id="okes" src="{% static 'home/images/w2.png' %}" alt=""></a>
+							<img id="okes" src="{{ims.1}}" alt="">
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img id="okes" src="{% static 'home/images/w3.png' %}" alt=""></a>
+							<img id="okes" src="{{ims.2}}" alt="">
 						</div>	
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img id="okes" src="{% static 'home/images/w4.png' %}" alt=""></a>
+							<img id="okes" src="{{ims.3}}" alt="">
 						</div>				
 					</div>
 				</div>
