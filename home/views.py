@@ -5,19 +5,15 @@ from .models import Product,Buy,Users
 from django.urls import reverse
 from django.contrib.auth import authenticate
 def index(request):
-    authenticated =False
-    if request.user.is_authenticated:
-        authenticated = True
     list_watch = Product.objects.all()[0:8]
     for i in list_watch:
         a = i.img.split(',')
         i.imgs = a
-    return render(request,'home/index.html',{'list_watch':list_watch,'authenticated':authenticated})
+    return render(request,'home/index.html',{'list_watch':list_watch})
 def watches(request):
     if request.GET:
         search = request.GET['search']
         list_watch = Product.objects.filter(ProductCode__contains=search)|Product.objects.filter(ProductName__contains=search)
-
         for i in list_watch:
             a = i.img.split(',')
             i.imgs = a
@@ -36,7 +32,10 @@ def card(request):
     return render(request,'home/card.html',{'List_Buy':List_Buy})
 def singerProduct(request,id):
     ok=True
-    list_singerProduct = Product.objects.get(pk=id)
+    try:
+        list_singerProduct = Product.objects.get(pk=id)
+    except:
+        return render(request,'home/singerProduct.html',{'unpip':'Sản phẩm Này không còn tồn tại do Mặt Hàng này đã bị niêm phong!!!'})
     a = list_singerProduct.img.split(',')
     if request.POST:    
         quantily = request.POST['quantily']
@@ -64,9 +63,7 @@ def singerProduct(request,id):
         list_singerProduct.stock-=int(quantily)
         list_singerProduct.save()
         return HttpResponseRedirect(reverse('card',))
-    else:
-        return render(request,'home/singerProduct.html',{'singerProduct':list_singerProduct,'ims':a,'ok':ok})
-
+    return render(request,'home/singerProduct.html',{'singerProduct':list_singerProduct,'ims':a,'ok':ok})
 def showAll(request):
     list_watch = Product.objects.all()
     for i in list_watch:

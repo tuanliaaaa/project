@@ -19,8 +19,3 @@ def Login(request):
 def Logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home',))
-def oke(request):
-    ok=False
-    if not request.user.is_authenticated:
-        ok=True
-    return render(request,'okr.html',{'ok':ok})

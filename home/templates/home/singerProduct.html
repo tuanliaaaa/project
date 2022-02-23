@@ -1,6 +1,7 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block content %}
+{% if not unpip %}
     <!-- single product -->
 	{% if ok  %}
 	{% else %}
@@ -85,4 +86,10 @@
 		</div>
 	</div>
 	<!-- end more picture -->
+{% else %}
+<div style="min-height: 500px;display: flex;">
+	<p style="font-size: 70px;margin: auto;text-align: center;">{{unpip}}
+
+	</p></div>
+{% endif %}
 {% endblock %}
