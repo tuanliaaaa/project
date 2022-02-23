@@ -28,10 +28,22 @@
 						<div class="single-product-form">
 							<form action="" method=POST>
 								{% csrf_token %}
-								<input type="number" placeholder="0" name="quantily" id="quantily" onchange ="checkQuantily()" style="width: 164px;text-align: end;" required>
-								<input type="text" placeholder="UserName" name="User" style="border: 1px solid #ddd;
-								border-radius: 5px;padding: 10px; width: 300px;margin-bottom: 15px;margin-left: 78px;" required>
-								<input class="cart-btn" type="submit" value=" Buy Now">
+								<input type="text" placeholder="0" name="quantily" style="width: 60px;">
+								{% if ok %}
+								<input type="text" placeholder="UserName" name="UserName" style="width: 160px;">
+								<input type="text" placeholder="sex" name="Sex" style="width: 60px;">
+								<input type="text" placeholder="Number" name="Number" style="width: 120px;">
+								<input type="text" placeholder="email" name="email" style="width: 200px;">  
+								{% else %}
+								<input type="text" value="{{UserName}}" name="UserName" style="width: 160px;">
+								<input type="text" value="{{Sex}}"  name="Sex" style="width: 60px;">
+								<input type="text" value="{{Number}}"  name="Number" style="width: 120px;">
+								<input type="text" value="{{email}}"  name="email" style="width: 200px;">
+								{% endif %}
+								<div style="display: flex;margin-top: 20px;">
+									<input class="cart-btn" style="margin: auto;" type="submit" value=" Buy Now">
+								</div>
+								
 							</form>
 							
 						</div>

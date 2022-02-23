@@ -20,15 +20,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								{% for Transaction in List_Transaction %}
+								{% for Transaction in List_Buy %}
 								<tr class="table-body-row" >
 									
 									<td class="product-image"><img src="{{Transaction.Product.imgs.0}}" alt="" style="height:auto"></td>
 									<td class="product-name">{{Transaction.Product.ProductName }}</td>
 									<td class="product-price">${{Transaction.Product.price}}</td>
-									<td class="product-quantity">{{Transaction.dateBuy|date:"D d M Y"}}</td>
-									<td class="product-total">{{Transaction.quatily}}</td>
-									<td class="product-User">{{Transaction.UserName}}</td>
+									<td class="product-quantity">{{Transaction.BuyTime|date:"D d M Y"}}</td>
+									<td class="product-total">{{Transaction.quantily}}</td>
+									<td class="product-User">{{Transaction.Users.UserName}}</td>
 								</tr>
 								{% endfor %}
 								
